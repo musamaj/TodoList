@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InvitePopup" customModule="TodoList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Invite Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MI5-x6-qPG">
+                    <rect key="frame" x="25" y="58.5" width="250" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="lrb-NM-va4"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-SA-A7c" customClass="FAButton" customModule="TodoList" customModuleProvider="target">
+                    <rect key="frame" x="80" y="130" width="140" height="40"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="KzT-7c-7Jb"/>
+                        <constraint firstAttribute="height" constant="40" id="orl-VW-Zof"/>
+                    </constraints>
+                    <state key="normal" title="Send">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actSend:" destination="iN0-l3-epB" eventType="touchUpInside" id="N3y-29-3kf"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-Jl-09x">
+                    <rect key="frame" x="25" y="25" width="88.5" height="23.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dNT-Jl-09x" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="5ws-nB-WNM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3Ei-SA-A7c" secondAttribute="bottom" constant="30" id="DdH-z7-kam"/>
+                <constraint firstItem="3Ei-SA-A7c" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fbh-Nv-NJu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MI5-x6-qPG" secondAttribute="trailing" constant="25" id="HIJ-H7-1U5"/>
+                <constraint firstItem="dNT-Jl-09x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="gA6-pg-rpf"/>
+                <constraint firstItem="MI5-x6-qPG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="nVu-eX-Qcu"/>
+                <constraint firstItem="MI5-x6-qPG" firstAttribute="top" secondItem="dNT-Jl-09x" secondAttribute="bottom" constant="10" id="oOo-Yh-C9R"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="lblEmail" destination="MI5-x6-qPG" id="e2B-Zb-DXS"/>
+            </connections>
+            <point key="canvasLocation" x="138.75" y="-299.47183098591552"/>
+        </view>
+    </objects>
+</document>

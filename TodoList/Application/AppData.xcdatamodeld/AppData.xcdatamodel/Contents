@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CommentEntity" representedClassName="CommentEntity" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskEntity" inverseName="comments" inverseEntity="TaskEntity" syncable="YES"/>
+    </entity>
+    <entity name="FoldersEntity" representedClassName="FoldersEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NSCategory" inverseName="folder" inverseEntity="NSCategory" syncable="YES"/>
+    </entity>
+    <entity name="NSCategory" representedClassName="NSCategory" syncable="YES">
+        <attribute name="accepted" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoldersEntity" inverseName="categories" inverseEntity="FoldersEntity" syncable="YES"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TaskEntity" inverseName="category" inverseEntity="TaskEntity" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SharedUsersEntity" inverseName="sharedCategory" inverseEntity="SharedUsersEntity" syncable="YES"/>
+    </entity>
+    <entity name="SharedUsersEntity" representedClassName="SharedUsersEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sharedCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NSCategory" inverseName="users" inverseEntity="NSCategory" syncable="YES"/>
+    </entity>
+    <entity name="SubtaskEntity" representedClassName="SubtaskEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionField" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskEntity" inverseName="subtasks" inverseEntity="TaskEntity" syncable="YES"/>
+    </entity>
+    <entity name="TaskEntity" representedClassName="TaskEntity" syncable="YES">
+        <attribute name="assigneeEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assigneeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assigneeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionField" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remindAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rowDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NSCategory" inverseName="tasks" inverseEntity="NSCategory" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CommentEntity" inverseName="task" inverseEntity="CommentEntity" syncable="YES"/>
+        <relationship name="subtasks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SubtaskEntity" inverseName="task" inverseEntity="SubtaskEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CommentEntity" positionX="-45" positionY="72" width="128" height="210"/>
+        <element name="FoldersEntity" positionX="-54" positionY="108" width="128" height="150"/>
+        <element name="NSCategory" positionX="-63" positionY="-18" width="128" height="255"/>
+        <element name="SharedUsersEntity" positionX="-54" positionY="108" width="128" height="150"/>
+        <element name="SubtaskEntity" positionX="-54" positionY="45" width="128" height="180"/>
+        <element name="TaskEntity" positionX="-63" positionY="-36" width="128" height="315"/>
+    </elements>
+</model>
